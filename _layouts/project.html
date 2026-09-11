@@ -1,23 +1,41 @@
 ---
 layout: default
 ---
-<article class="project-page">
-  <p class="back-link"><a href="{{ '/projects/' | relative_url }}">&larr; Back to Projects</a></p>
-
-  <p class="project-meta">
-    {% if page.date %}<time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%B %Y" }}</time>{% endif %}
-    {% if page.tags %} · {% for tag in page.tags %}<span class="tag">{{ tag }}</span>{% endfor %}{% endif %}
-  </p>
-
-  {% if page.summary %}<p class="lead">{{ page.summary }}</p>{% endif %}
-
-  <div class="project-content">
-    {{ content }}
+<section class="section section--navy page-hero">
+  <div class="container">
+    <div class="page-hero-inner">
+      <div class="page-hero-text">
+        <p class="label">Project</p>
+        <h1 class="section-title">{{ page.title }}</h1>
+        <p class="project-meta">
+          {% if page.date %}<time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%B %Y" }}</time>{% endif %}
+          {% if page.tags %} · {% for tag in page.tags %}<span class="tag">{{ tag }}</span> {% endfor %}{% endif %}
+        </p>
+        {% if page.summary %}<p class="lead">{{ page.summary }}</p>{% endif %}
+      </div>
+    </div>
   </div>
+</section>
 
-  {% if page.links %}
-  <p class="project-links">
-    {% for link in page.links %}<a href="{{ link.url }}" target="_blank" rel="noopener">{{ link.label }}</a>{% unless forloop.last %} · {% endunless %}{% endfor %}
-  </p>
-  {% endif %}
-</article>
+<section class="section section--navy">
+  <div class="container container--narrow">
+    <p class="back-link"><a href="{{ '/projects/' | relative_url }}">&larr; Back to Projects</a></p>
+
+    <article class="project-page">
+      <div class="project-content">
+        {{ content }}
+      </div>
+
+      {% if page.links %}
+      <div class="project-links-bottom">
+        <p class="label">Links</p>
+        <p class="project-links">
+          {% for link in page.links %}
+            <a class="btn btn--outline" href="{{ link.url }}" target="_blank" rel="noopener">{{ link.label }}</a>
+          {% endfor %}
+        </p>
+      </div>
+      {% endif %}
+    </article>
+  </div>
+</section>

@@ -1,0 +1,105 @@
+---
+layout: default
+title: "Khalil Oualdi"
+permalink: /
+---
+
+<!-- ==================== HERO ==================== -->
+<section class="hero section--navy">
+  <div class="parallax-container">
+    <!-- Geometric decorations with parallax -->
+    <div class="geo geo--circle parallax-layer" data-speed="-0.08" style="width:120px;height:120px;top:15%;left:8%;"></div>
+    <div class="geo geo--square parallax-layer" data-speed="0.06" style="width:60px;height:60px;top:60%;left:5%;"></div>
+    <div class="geo geo--dot parallax-layer" data-speed="-0.12" style="width:14px;height:14px;top:25%;right:15%;"></div>
+    <div class="geo geo--ring parallax-layer" data-speed="0.1" style="width:80px;height:80px;top:70%;right:10%;"></div>
+    <div class="geo geo--dot parallax-layer" data-speed="-0.05" style="width:8px;height:8px;top:45%;left:45%;"></div>
+    <div class="geo geo--circle parallax-layer" data-speed="0.07" style="width:40px;height:40px;top:80%;left:30%;"></div>
+    <div class="geo geo--square parallax-layer" data-speed="-0.09" style="width:30px;height:30px;top:10%;right:30%;"></div>
+    <div class="geo geo--ring parallax-layer" data-speed="0.04" style="width:180px;height:180px;bottom:10%;right:25%;"></div>
+  </div>
+
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-text reveal-left">
+        <p class="label">Hello, I'm</p>
+        <h1 class="hero-title">Khalil<br>Oualdi</h1>
+        <p class="hero-subtitle">Mathematics BSc student at EPFL</p>
+        <p class="hero-bio">
+          Placeholder bio — a couple of sentences about who I am,
+          what I'm interested in, and what I'm currently working on.
+          Replace this text in <code>index.html</code>.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn--primary" href="{{ '/projects/' | relative_url }}">View Projects</a>
+          <a class="btn btn--outline" href="{{ '/contact/' | relative_url }}">Get in Touch</a>
+        </div>
+      </div>
+
+      <div class="hero-character character character--float reveal-right">
+        <div class="speech-bubble speech-bubble--top" data-text="Welcome! 👋" data-delay="1500">&nbsp;</div>
+        {% include characters/wave.html %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ABOUT ==================== -->
+<section class="section section--dark" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="reveal-left">
+        <p class="label">About</p>
+        <h2 class="section-title">A bit about me</h2>
+        <p class="lead">
+          Placeholder — talk about your studies, your interests in mathematics,
+          programming, and whatever else makes you tick. Replace this in
+          <code>index.html</code>.
+        </p>
+      </div>
+
+      <div class="card-panel reveal-scale">
+        <h3>Interests</h3>
+        <p style="margin-top:0.75rem;">
+          Placeholder interests — pure mathematics, applied mathematics,
+          computer science, music, whatever you want to highlight. Edit
+          <code>index.html</code>.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FEATURED PROJECTS TEASER ==================== -->
+<section class="section section--navy">
+  <div class="container">
+    <div class="reveal">
+      <p class="label">Work</p>
+      <h2 class="section-title">Recent projects</h2>
+    </div>
+
+    {% assign projects = site.projects | sort: 'date' | reverse %}
+    {% if projects.size > 0 %}
+    <div class="projects-grid stagger">
+      {% for project in projects limit:3 %}
+      <article class="project-card">
+        <h2><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h2>
+        <p class="project-meta">
+          {% if project.date %}<time datetime="{{ project.date | date: '%Y-%m-%d' }}">{{ project.date | date: "%B %Y" }}</time>{% endif %}
+          {% if project.tags %} · {% for tag in project.tags %}<span class="tag">{{ tag }}</span> {% endfor %}{% endif %}
+        </p>
+        {% if project.summary %}<p>{{ project.summary }}</p>{% endif %}
+      </article>
+      {% endfor %}
+    </div>
+    {% if projects.size > 3 %}
+    <p style="margin-top:2rem;text-align:center;">
+      <a class="btn btn--outline" href="{{ '/projects/' | relative_url }}">View All Projects</a>
+    </p>
+    {% endif %}
+    {% else %}
+    <div class="empty-state reveal">
+      <p>No projects yet — check back soon.</p>
+    </div>
+    {% endif %}
+  </div>
+</section>
