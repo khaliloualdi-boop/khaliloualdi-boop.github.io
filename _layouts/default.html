@@ -1,13 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-{% include head.html %}
-</head>
-<body>
-  <header>
-    {% include nav.html %}
-  </header>
-  {{ content }}
-  {% include footer.html %}
-</body>
-</html>
+<html lang="en"><head>{% include head.html %}</head><body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header">{% include nav.html %}</header>
+<main id="main-content" tabindex="-1">{{ content }}</main>
+{% include footer.html %}
+</body></html>

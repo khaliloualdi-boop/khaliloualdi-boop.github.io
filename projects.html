@@ -1,64 +1,8 @@
 ---
 layout: default
 title: Projects
+description: Programming projects by Khalil Oualdi, from a Python adventure game to a C++ railway simulation.
 permalink: /projects/
 ---
-
-<!-- ==================== PAGE HERO ==================== -->
-<section class="section section--navy page-hero">
-  <div class="parallax-container">
-    <div class="geo geo--circle parallax-layer" data-speed="-0.06" style="width:100px;height:100px;top:20%;left:10%;"></div>
-    <div class="geo geo--ring parallax-layer" data-speed="0.08" style="width:140px;height:140px;top:30%;right:8%;"></div>
-    <div class="geo geo--dot parallax-layer" data-speed="-0.1" style="width:10px;height:10px;top:60%;left:40%;"></div>
-  </div>
-
-  <div class="container">
-    <div class="page-hero-inner">
-      <div class="page-hero-text reveal-left">
-        <p class="label">Portfolio</p>
-        <h1 class="section-title">Projects</h1>
-        <p class="lead">Things I've built, explored, and learned from.</p>
-      </div>
-
-      <div class="page-hero-character character character--float reveal-right">
-        <div class="speech-bubble speech-bubble--top" data-text="Take a look around!" data-delay="1200">&nbsp;</div>
-        {% include characters/point.html %}
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ==================== PROJECTS LIST ==================== -->
-<section class="section section--dark">
-  <div class="container">
-    {% assign projects = site.projects | sort: 'date' | reverse %}
-
-    {% if projects.size > 0 %}
-    <div class="projects-grid stagger">
-      {% for project in projects %}
-      <article class="project-card">
-        <h2><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h2>
-        <p class="project-meta">
-          {% if project.date %}<time datetime="{{ project.date | date: '%Y-%m-%d' }}">{{ project.date | date: "%B %Y" }}</time>{% endif %}
-          {% if project.tags %} · {% for tag in project.tags %}<span class="tag">{{ tag }}</span> {% endfor %}{% endif %}
-        </p>
-        {% if project.summary %}<p>{{ project.summary }}</p>{% endif %}
-        {% if project.links %}
-        <p class="project-links">
-          {% for link in project.links %}<a href="{{ link.url }}" target="_blank" rel="noopener">{{ link.label }} &rarr;</a> {% endfor %}
-        </p>
-        {% endif %}
-      </article>
-      {% endfor %}
-    </div>
-    {% else %}
-    <div class="empty-state reveal-scale">
-      <div class="character" style="margin: 0 auto 1.5rem; width: 100px;">
-        {% include characters/think.html %}
-      </div>
-      <p style="font-size:1.1rem;">No projects yet — check back soon.</p>
-      <p style="margin-top:0.5rem;">Add your first project by dropping a Markdown file in <code>_projects/</code>.</p>
-    </div>
-    {% endif %}
-  </div>
-</section>
+<section class="page-hero graph-paper"><div class="container"><p class="eyebrow">Project directory / {{ site.projects.size }} entries</p><h1>Selected projects.</h1><p class="lead">A closer look at the things I've built: the ideas, the rules, and the code that brings them together.</p></div></section>
+<section class="section"><div class="container"><div class="projects-grid">{% assign projects = site.projects | sort: 'order' %}{% for project in projects %}{% include project-card.html project=project heading="h2" %}{% endfor %}</div></div></section>

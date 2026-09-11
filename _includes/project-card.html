@@ -1,0 +1,9 @@
+{% assign project = include.project %}
+{% assign heading = include.heading | default: 'h3' %}
+<article class="project-card">
+  <div class="project-bar"><span>{{ project.file_label | default: project.title }}</span><span aria-hidden="true">{% if project.number %}{{ project.number }} / {% endif %}{{ site.projects.size }}</span></div>
+  <div class="project-art {{ project.visual }}">
+    {% if project.image %}<img src="{{ project.image | relative_url }}" alt="{{ project.image_alt | escape }}" width="192" height="208" loading="lazy">{% elsif project.visual == 'trains' %}{% include train-preview.html %}{% else %}<span class="eyebrow">{{ project.tags | join: ' / ' }}</span>{% endif %}
+  </div>
+  <div class="project-body"><div class="tags">{% for tag in project.tags %}<span class="tag">{{ tag }}</span>{% endfor %}</div><{{ heading }} class="project-title"><a href="{{ project.url | relative_url }}">{{ project.title }}</a></{{ heading }}><p>{{ project.summary }}</p><a class="text-link" href="{{ project.url | relative_url }}">Inside the project <span aria-hidden="true">↗</span><span class="sr-only">: {{ project.title }}</span></a></div>
+</article>

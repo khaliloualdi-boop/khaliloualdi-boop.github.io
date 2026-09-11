@@ -1,86 +1,39 @@
-# Personal website
+# Khalil Oualdi: personal portfolio
 
-Minimal Jekyll site: Home, Projects, CV, Contact. No backend, no build step
-beyond Jekyll itself, deploys straight to GitHub Pages.
+A Jekyll portfolio for a Mathematics BSc student at EPFL. Home, Projects, detailed project write-ups, Background, and Contact. Hosted on the existing GitHub Pages repository.
 
 ## Local development
 
-Requires Ruby (>= 2.7 recommended — check with `ruby -v`) and Bundler.
+Use a current supported Ruby and Bundler:
 
-```bash
+```sh
 bundle install
-bundle exec jekyll serve
+bundle exec jekyll serve --host 127.0.0.1
 ```
 
-Then open http://localhost:4000.
+Open http://127.0.0.1:4000. Build without serving with `bundle exec jekyll build`.
 
-## Adding a project
+The default macOS Ruby 2.6 is outdated and may not resolve current dependencies. The redesign was previewed locally with an isolated compatibility bundle outside the repository; the production Gemfile was preserved.
 
-Every file in `_projects/` becomes one entry on the Projects page (and its
-own page at `/projects/<filename>/`), automatically, newest first. Nothing to
-register anywhere else.
+## Content
 
-1. Copy [`templates/project-template.md`](templates/project-template.md) into
-   `_projects/your-project-slug.md`.
-2. Fill in the front matter:
-   - `title` — project name
-   - `date` — used for sorting and display
-   - `tags` — list of short labels
-   - `summary` — one or two sentences shown on the listing page
-   - `links` — list of `{label, url}` pairs (GitHub, demo, paper, etc.)
-3. Write the full description below the front matter in Markdown. Inline
-   math (`$...$`) and display math (`$$...$$`) are rendered client-side with
-   [KaTeX](https://katex.org/).
+- `index.html`: introduction and selected work.
+- `_projects/*.md`: the two project write-ups; add new entries from `templates/project-template.md`.
+- `cv.html`: education and project experience, retaining the `/cv/` route.
+- `assets/cv/CV.pdf`: optional CV download, shown only when the file exists.
+- `_config.yml`: site URL, GitHub profile, optional email and LinkedIn.
+- `DESIGN_GUIDE.md`: the design system and editing guidance.
 
-   If a math expression contains a literal `{{ ... }}` (double curly
-   braces), wrap it in `{% raw %}...{% endraw %}` so Jekyll's Liquid
-   templating engine doesn't try to interpret it as a variable.
+The project accounts are based on the public source repositories. Employment history, dates, contact details, and personal contribution claims have not been invented.
 
-With no files in `_projects/`, the Projects page shows a clean "no projects
-yet" placeholder — nothing to configure for that.
+## GitHub Pages
 
-## Adding your CV
+The existing remote is `git@github.com:khaliloualdi-boop/khaliloualdi-boop.github.io.git`. The canonical URL is https://khaliloualdi-boop.github.io with an empty base URL.
 
-Drop your PDF at `assets/cv/CV.pdf`. The CV page already links to it.
+The site uses GitHub Pages-compatible Jekyll plugins. Retain the existing Pages configuration; a frontend framework or extra deployment service is not needed.
 
-## Filling in your details
+Before pushing, review `git diff`, run the Jekyll build, and check the site on desktop and mobile. The redesign does not automatically commit, push, or change hosting settings.
 
-- `index.md` — replace the placeholder bio.
-- `contact.md` — replace the placeholder email/GitHub/LinkedIn.
-- `_config.yml` — `title` / `description` if you want to change them.
+## Remaining author content
 
-## Light / dark mode
-
-Follows the visitor's OS preference by default; the toggle button in the nav
-bar lets them override it, saved in `localStorage`. No framework — a few
-lines of vanilla JS in `assets/js/main.js`.
-
-## Deploying to GitHub Pages
-
-This site only uses plugins on GitHub Pages' allowed list
-(`jekyll-feed`, `jekyll-sitemap`, `jekyll-seo-tag`), so GitHub can build it
-natively — no GitHub Actions workflow needed.
-
-1. Create a GitHub repository and push this folder to it:
-
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial site"
-   git branch -M main
-   git remote add origin git@github.com:your-username/your-repo.git
-   git push -u origin main
-   ```
-
-2. **Option A — user site** (repo named `your-username.github.io`): once
-   pushed, GitHub Pages is enabled automatically and the site is live at
-   `https://your-username.github.io/`. Leave `baseurl: ""` in `_config.yml`.
-
-3. **Option B — project site** (any other repo name): go to the repo's
-   **Settings → Pages**, set **Source** to "Deploy from a branch", branch
-   `main`, folder `/ (root)`. The site is served at
-   `https://your-username.github.io/your-repo/`. Set
-   `baseurl: "/your-repo"` in `_config.yml` (and re-push) so internal links
-   resolve correctly.
-
-Either way, GitHub rebuilds the site automatically on every push to `main`.
+Add a CV PDF, optional email/LinkedIn, and any further experience or reflections when ready. Replace the asset-sheet and schematic previews with actual project screenshots if available.

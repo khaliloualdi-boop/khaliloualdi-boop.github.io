@@ -1,46 +1,13 @@
 ---
 layout: default
-title: CV
+title: Background
+description: Education and programming experience of Khalil Oualdi, Mathematics BSc student at EPFL.
 permalink: /cv/
 ---
-
-<!-- ==================== PAGE HERO ==================== -->
-<section class="section section--navy page-hero">
-  <div class="parallax-container">
-    <div class="geo geo--square parallax-layer" data-speed="-0.07" style="width:50px;height:50px;top:25%;right:12%;"></div>
-    <div class="geo geo--ring parallax-layer" data-speed="0.05" style="width:100px;height:100px;top:50%;left:5%;"></div>
-  </div>
-
-  <div class="container">
-    <div class="page-hero-inner">
-      <div class="page-hero-text reveal-left">
-        <p class="label">Background</p>
-        <h1 class="section-title">Curriculum Vitae</h1>
-        <p class="lead">A summary of my education, skills, and experience.</p>
-      </div>
-
-      <div class="page-hero-character character character--breathe reveal-right">
-        <div class="speech-bubble speech-bubble--top" data-text="Here's my CV!" data-delay="1000">&nbsp;</div>
-        {% include characters/work.html %}
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ==================== CV CONTENT ==================== -->
-<section class="section section--dark">
-  <div class="container container--narrow">
-    <div class="card-panel reveal-scale" style="text-align:center;">
-      <h2>Download</h2>
-      <p style="margin: 1rem auto; color: var(--text-secondary);">
-        View or download my full CV as a PDF.
-      </p>
-      <a class="btn btn--on-card" href="{{ '/assets/cv/CV.pdf' | relative_url }}" target="_blank" rel="noopener">
-        Download CV (PDF)
-      </a>
-      <p style="margin-top:1.5rem; font-size:0.85rem; color: var(--muted);">
-        Replace <code>assets/cv/CV.pdf</code> with your actual CV file.
-      </p>
-    </div>
-  </div>
-</section>
+<section class="page-hero graph-paper"><div class="container"><p class="eyebrow">Background / Education &amp; experience</p><h1>Learning through<br>mathematics and code.</h1><p class="lead">Mathematics BSc student at EPFL, with projects in game development and simulation.</p></div></section>
+<section class="section"><div class="container reading-layout"><div><p class="eyebrow">01 / Education</p></div><div><article class="entry"><h2>EPFL</h2><p class="lead">BSc in Mathematics</p><p class="muted">École polytechnique fédérale de Lausanne</p></article></div></div></section>
+<section class="section about-band"><div class="container reading-layout"><div><p class="eyebrow">02 / Project experience</p></div><div><h2 class="sr-only">Project experience</h2>
+<article class="entry"><h3>Top-Down Adventure</h3><p class="muted">Python · Arcade · Object-oriented programming</p><p>A Zelda-inspired game with map validation, weapon state machines, and graph-based navigation.</p><a class="text-link" href="{{ '/projects/top-down-adventure/' | relative_url }}">Read the project <span aria-hidden="true">↗</span></a></article>
+<article class="entry"><h3>Les Petits Trains</h3><p class="muted">C++ · ICC, module 2</p><p>A grid-based railway simulation connecting train movement, traffic-light control zones, and invariant tests.</p><a class="text-link" href="{{ '/projects/les-petits-trains/' | relative_url }}">Read the project <span aria-hidden="true">↗</span></a></article>
+</div></div></section>
+<section class="section"><div class="container reading-layout"><div><p class="eyebrow">03 / Curriculum vitae</p></div><div><h2>CV</h2>{% assign cv = site.static_files | where: 'path', '/assets/cv/CV.pdf' | first %}{% if cv %}<a class="btn btn-primary" href="{{ cv.path | relative_url }}" download>Download CV (PDF) <span aria-hidden="true">↓</span></a>{% else %}<p class="muted">A downloadable CV will be added here.</p>{% endif %}</div></div></section>

@@ -1,17 +1,11 @@
-<nav class="site-nav">
-  <div class="nav-inner">
-    <a class="nav-logo" href="{{ '/' | relative_url }}">K.O.</a>
-
-    <button class="nav-hamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-
-    <ul class="nav-links">
-      <li><a href="{{ '/' | relative_url }}">Home</a></li>
-      <li><a href="{{ '/projects/' | relative_url }}">Projects</a></li>
-      <li><a href="{{ '/cv/' | relative_url }}">CV</a></li>
-      <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
-      <li><button id="theme-toggle" type="button" aria-label="Toggle theme">🌙</button></li>
-    </ul>
-  </div>
-</nav>
+<nav class="container nav-inner" aria-label="Main navigation">
+<a class="nav-logo" href="{{ '/' | relative_url }}"><span class="logo-mark" aria-hidden="true">KO</span>Khalil Oualdi</a>
+<div class="nav-controls"><ul class="nav-links" id="nav-links">
+<li><a href="{{ '/' | relative_url }}" {% if page.url == '/' %}aria-current="page"{% endif %}>Home</a></li>
+<li><a href="{{ '/projects/' | relative_url }}" {% if page.url contains '/projects/' %}aria-current="{% if page.url == '/projects/' %}page{% else %}true{% endif %}"{% endif %}>Projects</a></li>
+<li><a href="{{ '/cv/' | relative_url }}" {% if page.url == '/cv/' %}aria-current="page"{% endif %}>Background</a></li>
+<li><a href="{{ '/contact/' | relative_url }}" {% if page.url == '/contact/' %}aria-current="page"{% endif %}>Contact</a></li>
+</ul>
+<button id="theme-toggle" class="icon-button" type="button" aria-label="Switch colour theme" title="Switch colour theme"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z"/></svg></button>
+<button class="icon-button menu-toggle" type="button" aria-label="Open navigation" aria-controls="nav-links" aria-expanded="false" title="Open navigation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+</div></nav>

@@ -1,6 +1,9 @@
 title: "Khalil Oualdi"
 description: "Personal website of Khalil Oualdi — Mathematics BSc student at EPFL."
-url: ""
+url: "https://khaliloualdi-boop.github.io"
+github_profile: "https://github.com/khaliloualdi-boop"
+email: ""
+linkedin_url: ""
 baseurl: ""
 
 collections:
@@ -18,6 +21,7 @@ defaults:
       type: "projects"
     values:
       layout: "project"
+      math: true
 
 markdown: kramdown
 kramdown:
@@ -33,6 +37,9 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
+  - DESIGN_GUIDE.md
+  - assets/images/README.md
+  - assets/cv/README.md
   - templates
   - vendor
   - node_modules
