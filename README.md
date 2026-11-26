@@ -18,7 +18,7 @@ The default macOS Ruby 2.6 is outdated and may not resolve current dependencies.
 ## Content
 
 - `index.html`: introduction and selected work.
-- `_projects/*.md`: the two project write-ups; add new entries from `templates/project-template.md`.
+- `_projects/*.md`: the project write-ups; add new entries from `templates/project-template.md`.
 - `cv.html`: education and project experience, retaining the `/cv/` route.
 - `assets/cv/CV.pdf`: optional CV download, shown only when the file exists.
 - `_config.yml`: site URL, GitHub profile, optional email and LinkedIn.
