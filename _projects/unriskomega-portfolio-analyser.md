@@ -6,6 +6,8 @@ file_label: run_analysis.py
 tags: [Python, Quantitative finance, Monte Carlo]
 summary: "A client-portfolio analysis pipeline built in a hackathon team for a case set by UnRiskOmega."
 description: "A hackathon portfolio analyser: reconciliation, concentration and risk measures, and Monte Carlo simulation of portfolio evolution."
+image: /assets/images/unriskomega-preview.svg
+image_alt: "Illustration of simulated Monte Carlo paths of portfolio value fanning out around their mean."
 context: LauzHack Tour + Swiss {ai} hackathon
 repository: https://github.com/khaliloualdi-boop/UnriskOmega
 math: true
