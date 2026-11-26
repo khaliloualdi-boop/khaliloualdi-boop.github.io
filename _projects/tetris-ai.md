@@ -9,6 +9,7 @@ description: "Building a Tetris game environment from scratch and training an ag
 image: /assets/images/tetris-preview.svg
 image_alt: "Illustration of a Tetris board with a T piece falling onto stacked pieces."
 context: Personal project, since June 2026
+repository: https://github.com/khaliloualdi-boop/Tetris
 math: true
 ---
 
@@ -40,3 +41,7 @@ The hardest part turned out not to be the learning but the features: finding one
 | :---- | :------------ |
 | Random baseline | 3 / 800 |
 | Final trained model | consistently 790+ / 800 |
+
+## Source
+
+[View the source on GitHub](https://github.com/khaliloualdi-boop/Tetris).
